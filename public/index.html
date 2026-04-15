@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=""pt-br">
+<head> 
+    <meta charset="UTF-8">
+    <titlle>Controle de Mercearia</titlle>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>🏪 Mercearia Local</h1>
+        </header>
+
+        <section class="registro">
+            <h3>Cadastro de Produto</h3>
+            <input type="hidden" id="id-prod">
+            <input type="text" id="nome-prod" placeholder="Nome (Ex: Arroz 5kg)">
+            <input type="number" id="preco-prod" placeholder="Preço (Ex: 25.90)" step="0.01">
+            <button onclick="salvar()" class="btn-salvar">Salvar no Sistema</button>
+            <button onclick="limpar()" class="btn-cancelar">Limpar</button>
+        </section>
+
+        <section class="visualizacao">
+            <h3>Produtos em Estoque</h3>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
