@@ -9,8 +9,8 @@ app.use(express.static('public'));
 
 // CONFIGURAÇÃO DO SUPABASE
 // Pegue essas informações no seu painel do Supabase em Project Settings > API
-const supabaseUrl = 'SUA_URL_DO_SUPABASE';
-const supabaseKey = 'SUA_CHAVE_ANON_PUBLIC';
+const supabaseUrl = 'https://slgbahuiwbfdoowqcbvn.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNsZ2JhaHVpd2JmZG9vd3FjYnZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyODM1NjQsImV4cCI6MjA5MTg1OTU2NH0.S-K79A_RCxALe9Oa8_nrUVBeECkt9Ir_-wDpygtCbAk';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.get('/api/produtos', async (req, res) => {
