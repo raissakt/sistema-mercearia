@@ -1,7 +1,8 @@
-const api = "http://localhost:3000/api/produtos";
+const API_URL = "/api/produtos";
 
 async function listar() {
-    const res =  await fetch(api);
+    // Corrigido de 'api' para 'API_URL'
+    const res = await fetch(API_URL); 
     const dados = await res.json();
     const corpoTabela = document.querySelector("#tabela tbody");
     corpoTabela.innerHTML = "";
@@ -26,7 +27,8 @@ async function salvar() {
 
     if (!nome || !preco) return alert("Preencha todos os campos!");
 
-    await fetch(api, {
+    // Corrigido de 'api' para 'API_URL'
+    await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -42,7 +44,8 @@ async function salvar() {
 
 async function deletar(id) {
     if(confirm("Deseja excluir este produto?")) {
-        await fetch(`${api}/${id}`, { method: 'DELETE' });
+        // Corrigido de 'api' para 'API_URL'
+        await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
         listar();
     }
 }
@@ -60,4 +63,3 @@ function limpar() {
 }
 
 listar(); // Carrega a lista assim que abre o site
-
