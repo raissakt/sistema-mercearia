@@ -21,14 +21,21 @@ app.get('/api/produtos', async (req, res) => {
 
 app.post('/api/produtos', async (req, res) => {
     const { id, nome, preco } = req.body;
-    
+    console.log("Recebendo dados:", { id, nome, preco }); // Isso aparecerá nos LOGS do Render
+
     if (id) {
         const { error } = await supabase.from('produtos').update({ nome, preco }).eq('id', id);
-        if (error) return res.status(500).json(error);
+        if (error) {
+            console.error("Erro Supabase:", error);
+            return res.status(500).json(error);
+        }
         res.json({ message: "Atualizado!" });
     } else {
         const { error } = await supabase.from('produtos').insert([{ nome, preco }]);
-        if (error) return res.status(500).json(error);
+        if (error) {
+            console.error("Erro Supabase:", error);
+            return res.status(500).json(error);
+        }
         res.json({ message: "Criado!" });
     }
 });
